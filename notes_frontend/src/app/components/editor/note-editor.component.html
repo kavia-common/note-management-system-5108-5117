@@ -1,0 +1,29 @@
+<div class="editor-wrap" *ngIf="note; else noSelection">
+  <div class="editor-head">
+    <input
+      class="title-input"
+      type="text"
+      placeholder="Note title"
+      [(ngModel)]="draftTitle"
+    />
+
+    <div class="editor-actions">
+      <button class="danger" (click)="onDelete()" aria-label="Delete note">Delete</button>
+      <button class="primary" (click)="onSave()" aria-label="Save note">Save</button>
+    </div>
+  </div>
+
+  <textarea
+    class="content-input"
+    placeholder="Start typing your note..."
+    [(ngModel)]="draftContent"
+  ></textarea>
+</div>
+
+<ng-template #noSelection>
+  <div class="no-selection">
+    <div class="emoji">📄</div>
+    <div class="headline">Select a note to get started</div>
+    <div class="text-muted">Or create a new note from the top bar</div>
+  </div>
+</ng-template>

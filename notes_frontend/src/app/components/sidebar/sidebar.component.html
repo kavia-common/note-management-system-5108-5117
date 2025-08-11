@@ -1,0 +1,34 @@
+<div class="sidebar-wrap">
+  <div class="sidebar-head">
+    <span class="label">Notes</span>
+    <span class="hint text-muted hide-on-mobile">Use search above to filter</span>
+  </div>
+
+  <div class="list" role="list">
+    <ng-container *ngIf="notes?.length; else empty">
+      <button
+        role="listitem"
+        class="item"
+        *ngFor="let n of notes"
+        [class.active]="n.id === selectedId"
+        (click)="select.emit(n.id)"
+      >
+        <div class="title-line">
+          <span class="title">{{ n.title || 'Untitled' }}</span>
+          <time class="date text-muted" [dateTime]="n.updatedAt">{{ n.updatedAt | date:'MMM d, HH:mm' }}</time>
+        </div>
+        <div class="preview text-muted">
+          {{ preview(n.content || '') }}
+        </div>
+      </button>
+    </ng-container>
+  </div>
+
+  <ng-template #empty>
+    <div class="empty">
+      <div class="emoji">📝</div>
+      <div>No notes found</div>
+      <div class="text-muted">Try creating a new one</div>
+    </div>
+  </ng-template>
+</div>

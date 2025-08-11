@@ -1,16 +1,61 @@
-.container {
+.app-shell {
+  min-height: 100dvh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #ffffff;
+  flex-direction: column;
 }
 
-h1 {
-  color: #1976d2;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+.content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sidebar {
+  padding: 0;
+  overflow: hidden;
+  height: calc(100dvh - 72px - 32px); /* topbar height and padding */
+}
+
+.main {
+  padding: 0;
+  height: calc(100dvh - 72px - 32px);
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 72px;
+    left: 16px;
+    right: 16px;
+    height: calc(60dvh);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 200ms ease;
+    z-index: 20;
+  }
+  .sidebar.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .main {
+    height: calc(100dvh - 72px - 16px);
+  }
 }

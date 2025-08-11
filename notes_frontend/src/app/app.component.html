@@ -1,3 +1,26 @@
-<div class="container">
-  <h1>{{ title }}</h1>
+<div class="app-shell">
+  <app-topbar
+    [title]="title"
+    (toggleSidebar)="onToggleSidebar()"
+    (createNote)="onCreateNote()"
+    (searchChange)="onSearch($event)"
+  ></app-topbar>
+
+  <div class="content">
+    <aside class="sidebar card" [class.open]="sidebarOpen()">
+      <app-sidebar
+        [notes]="filteredNotes()"
+        [selectedId]="selectedId()"
+        (select)="onSelectNote($event)"
+      ></app-sidebar>
+    </aside>
+
+    <main class="main card">
+      <app-note-editor
+        [note]="selectedNote()"
+        (save)="onSave($event)"
+        (delete)="onDelete($event)"
+      ></app-note-editor>
+    </main>
+  </div>
 </div>

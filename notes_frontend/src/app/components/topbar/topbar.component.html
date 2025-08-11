@@ -1,0 +1,24 @@
+<header class="topbar elevated">
+  <div class="left">
+    <button class="icon show-on-mobile" aria-label="Toggle sidebar" (click)="toggleSidebar.emit()">
+      ☰
+    </button>
+    <h1 class="title">{{ title }}</h1>
+  </div>
+
+  <div class="actions">
+    <div class="search">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        placeholder="Search notes..."
+        (input)="onInput($event)"
+        aria-label="Search notes"
+      />
+    </div>
+
+    <button class="new-note" (click)="createNote.emit()" aria-label="Create new note">
+      + New note
+    </button>
+  </div>
+</header>

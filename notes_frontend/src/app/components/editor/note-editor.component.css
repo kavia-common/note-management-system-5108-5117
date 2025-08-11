@@ -1,0 +1,78 @@
+.editor-wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.editor-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  outline: none;
+  background: #f9fafb;
+}
+
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editor-actions .primary {
+  background: var(--primary);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 1px 1px rgba(0,0,0,.06), 0 2px 6px rgba(25,118,210,.25);
+}
+
+.editor-actions .danger {
+  background: #ffe8ec;
+  color: var(--accent);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid #ffd1db;
+}
+
+.content-input {
+  flex: 1;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 16px;
+  resize: none;
+  background: var(--surface);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.no-selection {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.no-selection .headline {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.emoji {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
